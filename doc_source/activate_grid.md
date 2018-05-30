@@ -1,6 +1,6 @@
 # Activate NVIDIA GRID Capabilities \(G3 Instances Only\)<a name="activate_grid"></a>
 
-To activate the GRID capabilities on G3 instances, such as NVIDIA GRID Virtual Workstation or NVIDIA GRID Virtual Applications, you must define the product type for the driver in the `/etc/nvidia/gridd.conf` file\.
+To activate the GRID capabilities on G3 instances, such as NVIDIA GRID Virtual Workstation or NVIDIA GRID Virtual Applications, you must define the product type for the driver in the `/etc/nvidia/gridd.conf` file\. For more information, see the [GRID Licensing User Guide](http://docs.nvidia.com/grid/4.6/grid-licensing-user-guide/index.html)\.
 
 **To activate GRID features on G3 Linux instances**
 
@@ -13,13 +13,11 @@ To activate the GRID capabilities on G3 instances, such as NVIDIA GRID Virtual W
 1. Open the `/etc/nvidia/gridd.conf` file in your favorite text editor\.
 
 1. 
-
    + For NVIDIA GRID Virtual Workstation, find the `FeatureType` line, and set it equal to 2\.
 
      ```
      FeatureType=2
      ```
-
    + For NVIDIA GRID Virtual Applications, find the `FeatureType` line, and set it equal to 0\. Then add a line with `IgnoreSP=TRUE`\.
 
      ```

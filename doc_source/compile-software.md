@@ -11,7 +11,7 @@ Because software compilation is not a task that every Amazon EC2 instance requir
 [ec2-user ~]$ sudo yum groupinstall "Development Tools"
 ```
 
-Software source code packages are often available for download \(from web sites such as [https://github\.com/](https://github.com/) and [http://sourceforge\.net/](http://sourceforge.net/)\) as a compressed archive file, called a tarball\. These tarballs will usually have the `.tar.gz` file extension\. You can decompress these archives with the tar command\.
+Software source code packages are often available for download \(from web sites such as [https://github\.com/](https://github.com/) and [http://sourceforge\.net/](https://sourceforge.net/)\) as a compressed archive file, called a tarball\. These tarballs will usually have the `.tar.gz` file extension\. You can decompress these archives with the tar command\.
 
 ```
 [ec2-user ~]$ tar -xzf software.tar.gz
@@ -22,7 +22,6 @@ After you have decompressed and unarchived the source code package, you should l
 **To retrieve source code for Amazon Linux packages**
 
 Amazon Web Services provides the source code for maintained packages\. You can download the source code for any installed packages with the yumdownloader \-\-source command\.
-
 + Run the yumdownloader \-\-source *package* command to download the source code for *package*\. For example, to download the source code for the `htop` package, enter the following command\.
 
   ```

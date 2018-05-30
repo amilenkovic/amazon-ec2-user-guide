@@ -4,7 +4,7 @@ To help you track your Spot Instance requests and plan your use of Spot Instance
 
 At each step of the process—also called the Spot request *lifecycle*, specific events determine successive request states\.
 
-
+**Topics**
 + [Life Cycle of a Spot Request](#spot-instances-bid-status-lifecycle)
 + [Getting Request Status Information](#get-spot-instance-bid-status)
 + [Spot Request Status Codes](#spot-instance-bid-status-understand)
@@ -107,9 +107,7 @@ You can get request status information using the AWS Management Console or a com
 **To get request status information using the command line**
 
 You can use one of the following commands\. For more information about these command line interfaces, see [Accessing Amazon EC2](concepts.md#access-ec2)\.
-
 + [describe\-spot\-instance\-requests](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-spot-instance-requests.html) \(AWS CLI\)
-
 + [Get\-EC2SpotInstanceRequest](http://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2SpotInstanceRequest.html) \(AWS Tools for Windows PowerShell\)
 
 ## Spot Request Status Codes<a name="spot-instance-bid-status-understand"></a>
@@ -149,7 +147,7 @@ Your instance was terminated from a stopped state\.
 You terminated a Spot Instance that had been fulfilled, so the request state is `closed` \(unless it's a persistent request\) and the instance state is `terminated`\.
 
  `instance-terminated-capacity-oversubscribed`   
-Your instance is terminated because the number of Spot requests with maximum prices equal to or higher than your maximum price exceeded the available capacity in this Spot Instance pool\. \(Note that the Spot price might not have changed\.\)
+Your instance is terminated because the number of Spot requests with maximum prices equal to or higher than the Spot price exceeded the available capacity in this Spot Instance pool\. \(Note that the Spot price might not have changed\.\)
 
 `instance-terminated-launch-group-constraint`  
 One or more of the instances in your launch group was terminated, so the launch group constraint is no longer fulfilled\.
@@ -184,7 +182,7 @@ The Spot request can't be fulfilled yet because a Spot Instance can't be added t
 `price-too-low`  
 The request can't be fulfilled yet because your maximum price is below the Spot price\. In this case, no instance is launched and your request remains `open`\.
 
-`request-cancelled-and-instance-running`  
+`request-canceled-and-instance-running`  
 You canceled the Spot request while the Spot Instances are still running\. The request is `cancelled`, but the instances remain `running`\.
 
 `schedule-expired`  

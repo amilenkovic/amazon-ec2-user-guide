@@ -1,8 +1,8 @@
 # Authorizing Inbound Traffic for Your Linux Instances<a name="authorizing-access-to-an-instance"></a>
 
-Security groups enable you to control traffic to your instance, including the kind of traffic that can reach your instance\. For example, you can allow computers from only your home network to access your instance using SSH\. If your instance is a web server, you can allow all IP addresses to access your instance via HTTP, so that external users can browse the content on your web server\.
+Security groups enable you to control traffic to your instance, including the kind of traffic that can reach your instance\. For example, you can allow computers from only your home network to access your instance using SSH\. If your instance is a web server, you can allow all IP addresses to access your instance using HTTP or HTTPS, so that external users can browse the content on your web server\.
 
-To enable network access to your instance, you must allow inbound traffic to your instance\. To open a port for inbound traffic, add a rule to a security group that you associated with your instance when you launched it\.
+Your default security groups and newly created security groups include default rules that do not enable you to access your instance from the Internet\. For more information, see [Default Security Groups](using-network-security.md#default-security-group) and [Custom Security Groups](using-network-security.md#creating-your-own-security-groups)\. To enable network access to your instance, you must allow inbound traffic to your instance\. To open a port for inbound traffic, add a rule to a security group that you associated with your instance when you launched it\.
 
 To connect to your instance, you must set up a rule to authorize SSH traffic from your computer's public IPv4 address\. To allow SSH traffic from additional IP address ranges, add another rule for each range you need to authorize\.
 
@@ -59,13 +59,11 @@ Be sure to run the following commands on your local system, not on the instance 
 **To add a rule to a security group using the command line**
 
 1. Find the security group that is associated with your instance using one of the following commands:
-
    + [describe\-instance\-attribute](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-attribute.html) \(AWS CLI\)
 
      ```
      aws ec2 describe-instance-attribute --instance-id instance_id --attribute groupSet
      ```
-
    + [Get\-EC2InstanceAttribute](http://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2InstanceAttribute.html) \(AWS Tools for Windows PowerShell\)
 
      ```
@@ -75,13 +73,11 @@ Be sure to run the following commands on your local system, not on the instance 
    Both commands return a security group ID, which you use in the next step\.
 
 1. Add the rule to the security group using one of the following commands:
-
    + [authorize\-security\-group\-ingress](http://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html) \(AWS CLI\)
 
      ```
      aws ec2 authorize-security-group-ingress --group-id security_group_id --protocol tcp --port 22 --cidr cidr_ip_range
      ```
-
    + [Grant\-EC2SecurityGroupIngress](http://docs.aws.amazon.com/powershell/latest/reference/items/Grant-EC2SecurityGroupIngress.html) \(AWS Tools for Windows PowerShell\)
 
      The `Grant-EC2SecurityGroupIngress` command needs an `IpPermission` parameter, which describes the protocol, port range, and IP address range to be used for the security group rule\. The following command creates the `IpPermission` parameter:

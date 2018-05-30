@@ -2,7 +2,7 @@
 
 Amazon Web Services provides a repository of public data sets that can be seamlessly integrated into AWS cloud\-based applications\. Amazon stores the data sets at no charge to the community and, as with all AWS services, you pay only for the compute and storage you use for your own applications\.
 
-
+**Topics**
 + [Public Data Set Concepts](#concepts-public-data-sets)
 + [Finding Public Data Sets](#using-public-data-sets-finding)
 + [Creating a Public Data Set Volume from a Snapshot](#using-public-data-sets-launching-set)
@@ -12,18 +12,14 @@ Amazon Web Services provides a repository of public data sets that can be seamle
 
 Previously, large data sets such as the mapping of the Human Genome and the US Census data required hours or days to locate, download, customize, and analyze\. Now, anyone can access these data sets from an EC2 instance and start computing on the data within minutes\. You can also leverage the entire AWS ecosystem and easily collaborate with other AWS users\. For example, you can produce or use prebuilt server images with tools and applications to analyze the data sets\. By hosting this important and useful data with cost\-efficient services such as Amazon EC2, AWS hopes to provide researchers across a variety of disciplines and industries with tools to enable more innovation, more quickly\. 
 
-For more information, go to the [Public Data Sets on AWS Page\.](http://aws.amazon.com/publicdatasets/)
+For more information, go to the [AWS Public Datasets](https://aws.amazon.com/publicdatasets/) page\.
 
 ### Available Public Data Sets<a name="concepts-public-data-sets-available"></a>
 
 Public data sets are currently available in the following categories:
-
 + **Biology—**Includes Human Genome Project, GenBank, and other content\.
-
 + **Chemistry—**Includes multiple versions of PubChem and other content\. 
-
 + **Economics—**Includes census data, labor statistics, transportation statistics, and other content\. 
-
 + **Encyclopedic—**Includes Wikipedia content from multiple sources and other content\. 
 
 ## Finding Public Data Sets<a name="using-public-data-sets-finding"></a>
@@ -32,7 +28,7 @@ Before you can use a public data set, you must locate the data set and determine
 
 **To find a public data set and determine its format**
 
-1. Go to the [Public Data Sets Page](http://aws.amazon.com/datasets/) to see a listing of all available public data sets\. You can also enter a search phrase on this page to query the available public data set listings\.
+1. Go to the [AWS Public Datasets](https://aws.amazon.com/datasets/) page to see a listing of all available public data sets\. You can also enter a search phrase on this page to query the available public data set listings\.
 
 1. Click the name of a data set to see its detail page\.
 
@@ -82,6 +78,6 @@ If you specify both a volume size and a snapshot, the size must be equal to or g
 
 After you have created your new data set volume, you need to attach it to an EC2 instance to access the data \(this instance must also be in the same Availability Zone as the new volume\)\. For more information, see [Attaching an Amazon EBS Volume to an Instance](ebs-attaching-volume.md)\.
 
-After you have attached the volume to an instance, you need to mount the volume on the instance\. For more information, see [Making an Amazon EBS Volume Available for Use](ebs-using-volumes.md)\.
+After you have attached the volume to an instance, you need to mount the volume on the instance\. For more information, see [Making an Amazon EBS Volume Available for Use on Linux](ebs-using-volumes.md)\.
 
 If you restored a snapshot to a larger volume than the default for that snapshot, you must extend the file system on the volume to take advantage of the extra space\. For more information, see [Modifying the Size, IOPS, or Type of an EBS Volume on Linux](ebs-modify-volume.md)\.

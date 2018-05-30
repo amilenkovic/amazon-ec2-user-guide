@@ -19,7 +19,6 @@ Linux boot volumes may be either MBR or GPT, and Linux GPT boot volumes are not 
 ## Partitioning Schemes<a name="partitioning"></a>
 
 Among other impacts, the partitioning scheme determines how many logical data blocks can be uniquely addressed in a single volume\. For more information, see [Data Block Sizes](#block_size)\. Two partitioning schemes are in common use on Linux and Windows systems: master boot record \(MBR\) and GUID partition table \(GPT\)\. The important differences between the two can be summarized as follows:
-
 + **MBR**
 
   MBR uses a 32\-bit data structure to store block addresses\. This means that each data block is mapped with one of 232possible integers\. The maximum addressable size of a volume is given by: 
@@ -31,7 +30,6 @@ Among other impacts, the partitioning scheme determines how many logical data bl
    \(232 \- 1\) × 512 bytes = 2 TiB \- 512 bytes
 
   Engineering workarounds to increase this 2\-TiB limit for MBR volumes have not met with widespread industry adoption\. Consequently, Linux and Windows never detect an MBR volume as being larger than 2 TiB even if AWS shows its size to be larger\. 
-
 + **GPT**
 
   GPT uses a 64\-bit data structure to store block addresses\. This means that each data block is mapped with one of 264 possible integers\. The maximum addressable size of a volume is given by:
@@ -70,7 +68,7 @@ The following table summarizes the theoretical and implemented storage capacitie
 
 **MBR vs\. GPT volume sizes for popular file systems, assuming 4,096\-byte block size**  
 
-| Partitioning Scheme | Max\. addressable blocks  | Theoretical max\. size \(blocks × block size\) | Ext4 implemented max\. size\* | XFS implemented max\. size\*\* | NTFS implemented max\. size\*\*\* | Max\. supported by EBS | 
+| Partitioning Scheme | Max\. addressable blocks  | Theoretical max\. size \(blocks × block size\) | Ext4 implemented max\. size\* | XFS implemented max\. size\*\* | NTFS implemented max\. size | Max\. supported by EBS | 
 | --- | --- | --- | --- | --- | --- | --- | 
 | MBR | 232 | 2 TiB | 2 TiB | 2 TiB | 2 TiB | 2 TiB | 
 | GPT | 264 | 8 ZiB = 8 ×10243 TiB | 1 EiB =10242 TiB \(50 TiB certified on RHEL7\) |  500 TiB \(certified on RHEL7\)  | 256 TiB | 16 TiB | 
@@ -78,8 +76,6 @@ The following table summarizes the theoretical and implemented storage capacitie
 \* [https://ext4.wiki.kernel.org/index.php/Ext4_Howto](https://ext4.wiki.kernel.org/index.php/Ext4_Howto) and [https://access.redhat.com/solutions/1532](https://access.redhat.com/solutions/1532)
 
 \*\* [https://access.redhat.com/solutions/1532](https://access.redhat.com/solutions/1532)
-
-\*\*\* [https://technet.microsoft.com/en-us/library/dn466522(v=ws.11).aspx](https://technet.microsoft.com/en-us/library/dn466522(v=ws.11).aspx) and [https://technet.microsoft.com/en-us/library/dn466522(v=ws.11).aspx](https://technet.microsoft.com/en-us/library/dn466522(v=ws.11).aspx)
 
 ## Recommendations for Linux Volumes<a name="linux-volumes"></a>
 
